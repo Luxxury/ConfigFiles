@@ -1,3 +1,5 @@
+# SWAY CONFIG
+
 
 ## Variables
 
@@ -8,7 +10,7 @@ set $up k
 set $right l
 
 set $term foot
-default_border pixel 1
+default_border pixel 2
 client.focused #ffffff #ffffff #000000 #fc2d2d
 set $menu wofi --show drun 
 smart_gaps off 
@@ -17,13 +19,12 @@ gaps outer 0
 
 ### Output configuration
 
- output * bg ~/.config/sway/wall fill
+output * bg ~/.config/sway/wall fill
 output eDP-1 resolution 2560x1600 scale 1.3 position 0,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
+
+## Idle configuration
+
 # Example configuration:
 #
 # exec swayidle -w \
@@ -31,9 +32,6 @@ output eDP-1 resolution 2560x1600 scale 1.3 position 0,0
 #          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
 #          before-sleep 'swaylock -f -c 000000'
 #
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ## Input configuration
 
@@ -44,9 +42,9 @@ output eDP-1 resolution 2560x1600 scale 1.3 position 0,0
        middle_emulation enabled
    }
 
-#   input "type:keyboard" {
-#	xkb_options ctrl:swapcaps
-#	}
+#   input "1452:635:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
+#	xkb_options capslock:escape
+#   }
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -150,15 +148,10 @@ output eDP-1 resolution 2560x1600 scale 1.3 position 0,0
 #
 # Scratchpad:
 #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
 
-    # Move the currently focused window to the scratchpad
-    #bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+bracketleft move scratchpad
+bindsym $mod+bracketright scratchpad show 
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    #bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
@@ -195,6 +188,7 @@ bindsym $mod+shift+w exec /home/plague/Documents/Scripts/wall.sh -s
 
 bindsym $mod+p exec ~/Documents/Scripts/screenshot.sh -f
 bindsym $mod+shift+p exec ~/Documents/Scripts/screenshot.sh -s
+bindsym $mod+Shift+b exec killall waybar || waybar &
 
 # Media Keys
 bindsym XF86AudioLowerVolume exec ./.local/bin/pulsemixer --change-volume -2
@@ -204,7 +198,13 @@ bindsym XF86AudioMute exec ./.local/bin/pulsemixer --toggle-mute
 bindsym XF86MonBrightnessUp exec brightnessctl s +2%
 bindsym XF86MonBrightnessDown exec brightnessctl s 2%-
 
+bindsym XF86KbdBrightnessDown exec brightnessctl -d apple::kbd_backlight s 10%-
+bindsym XF86KbdBrightnessUp exec brightnessctl -d apple::kbd_backlight s 10%+
 
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 
 # Rules
