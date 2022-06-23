@@ -42,10 +42,6 @@ output eDP-1 resolution 2560x1600 scale 1.3 position 0,0
        middle_emulation enabled
    }
 
-#   input "1452:635:Apple_Inc._Apple_Internal_Keyboard_/_Trackpad" {
-#	xkb_options capslock:escape
-#   }
-
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -209,6 +205,10 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Rules
 for_window [app_id="float"] floating enable;
+exec_always {
+	swaymsg 'input type:keyboard xkb_options "caps:swapescape"'
+	}
+
 
 bar {
 	swaybar_command waybar
