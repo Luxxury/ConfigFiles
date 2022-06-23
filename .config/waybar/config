@@ -5,7 +5,7 @@
 	"spacing": 5, 			// Gaps between modules (4px)
     	"margin-top": 10,
     	"margin-bottom":0, 
-	"modules-center": ["sway/workspaces", "sway/mode","clock", "custom/memory", "network", "backlight", "temperature", "battery", "pulseaudio", "tray"],
+	"modules-center": ["sway/workspaces", "sway/mode","clock", "custom/memory", "network", "custom/netspeed", "backlight", "temperature", "battery", "pulseaudio", "tray"],
     
 // Modules configuration
     
@@ -35,7 +35,6 @@
     	
     	"temperature": {
         	
-       		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         	"critical-threshold": 80,
         	"format-critical": "CRIT {temperatureC}°C",
         	"format": "TEMP {temperatureC}°C",
@@ -44,8 +43,10 @@
     	
 	"backlight": {
         	"format": "BKLT {percent}%",
-        	
+		"scroll-step": 1,
     	},
+
+
   	"battery": {
         	"states": {
         	 	"good": 95,
@@ -71,20 +72,27 @@
         	
     	},
 	"pulseaudio": {
+		"scroll-step": 1,
         	"format": "VOL {volume}% MIC {format_source}", 
         	"format-muted": "VOL MUTE MIC {format_source}",
 		"format-source": "{volume}%",
 		"format-source-muted": "MUTE",
         	"on-click": "foot -- /home/plague/.local/bin/pulsemixer"
         	},
-    	},
     	
     	//custom
     	
     	"custom/memory": { 
 		"exec": "free -h | grep 'Mem' | cut -d' ' -f19",
         	"format": "RAM {}",
-        	"interval": 3,
+        	"interval": 1,
 	},
+
+	"custom/netspeed": {
+		"exec": "sh /home/plague/Documents/Scripts/netspeed.sh",
+		"format": "{}",
+		"interval": 1,
+	}
+
 }
 
