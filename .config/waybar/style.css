@@ -73,6 +73,11 @@ window#waybar.hidden {
     background-color: green;
 }
 
+#battery.warning:not(.charging) {
+    background-color: orange;
+    border: 3px solid black;
+    color: black;
+    }
 @keyframes blink {
     to {
         background-color: #ffffff;
@@ -109,7 +114,8 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    /*background-color: #f1c40f;*/
+    background-color: white;
     color: #000000;
      border: 3px solid black;
 }
@@ -126,6 +132,7 @@ label:focus {
 #temperature.critical {
     background-color: red;
     color: white;
+    border: 3px solid black;
 }
 
 #tray {

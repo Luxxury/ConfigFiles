@@ -11,7 +11,6 @@
     
 	"sway/workspaces": {
      		"disable-scroll": true,
-     		"all-outputs": true,
      		"format": "{name}",
 	},
          
@@ -42,8 +41,11 @@
     	
     	
 	"backlight": {
-        	"format": "BKLT {percent}%",
+        	"format": "BR {percent}%",
+		"on-scroll-up": "brightnessctl s +2%",
+		"on-scroll-down": "brightnessctl s 2%-",
 		"scroll-step": 1,
+		"smooth-scrolling-threshold": 1,
     	},
 
 
@@ -64,11 +66,10 @@
     	
 	"network": {
         	"format-wifi": "WIFI {essid}",
-        	"format-ethernet": "ETH   {ipaddr}/{cidr}",
+        	"format-ethernet": "ETH {ipaddr}/{cidr}",
         	"tooltip-format": "{ifname} via {gwaddr}",
         	"format-linked": "{ifname} (No IP)",
         	"format-disconnected": "DEAD",
-        	"on-click": "foot -- nmtui"
         	
     	},
 	"pulseaudio": {
@@ -85,14 +86,15 @@
     	"custom/memory": { 
 		"exec": "free -h | grep 'Mem' | cut -d' ' -f19",
         	"format": "RAM {}",
-        	"interval": 1,
+        	"interval": 3,
+		"on-click": "foot -a float -w 1500x1000 -- sudo btop",
 	},
 
 	"custom/netspeed": {
-		"exec": "sh /home/plague/Documents/Scripts/netspeed.sh",
+		"exec": "/home/plague/Documents/Scripts/netspeed",
 		"format": "{}",
 		"interval": 1,
-	}
+	},
 
 }
 
