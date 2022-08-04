@@ -1,14 +1,15 @@
 * {
     font-family: IBM Plex Mono;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
-    border-radius: 5px;
+    /*border-radius: 5px */
 }
 #clock,
 #battery,
 #temperature,
 #custom-memory,
 #custom-netspeed,
+#custom-layout,
 #backlight,
 #network,
 #pulseaudio,
@@ -17,10 +18,11 @@
 	padding: 0 10px;
 	color: #ffffff;
 	background-color: black;
+    	border-radius: 0px;
 }
 
 window#waybar {
-    background-color: transparent;
+    background-color: black;
     color: #ffffff; 
 }
 
@@ -33,12 +35,12 @@ window#waybar.hidden {
     padding: 0 7px;
     background-color: black;
     color: #ffffff;   
+    border-radius: 0px;
 }
 
 #workspaces button.focused {
     background-color: white;
     color: black;
-     border: 3px solid black;
 }
 
 #workspaces button.urgent {
@@ -68,14 +70,12 @@ window#waybar.hidden {
 }
 
 #battery.charging, #battery.plugged {
-    border: 3px solid black;
     color: white;
     background-color: green;
 }
 
 #battery.warning:not(.charging) {
     background-color: orange;
-    border: 3px solid black;
     color: black;
     }
 @keyframes blink {
@@ -87,7 +87,6 @@ window#waybar.hidden {
 
 #battery.critical:not(.charging) {
     background-color: red;
-    border: 3px solid black;
     color:white;
     animation-name: blink;
     animation-duration: 1s;
@@ -110,20 +109,14 @@ label:focus {
 
 #network.disconnected {
     background-color: red;
-     border: 3px solid black;
 }
 
 #pulseaudio {
     /*background-color: #f1c40f;*/
-    background-color: white;
-    color: #000000;
-     border: 3px solid black;
-}
-
-#pulseaudio.muted {
-    background-color: blue;
+    background-color: black;
     color: white;
 }
+
 
 #temperature {
     background-color: black;
@@ -132,7 +125,6 @@ label:focus {
 #temperature.critical {
     background-color: red;
     color: white;
-    border: 3px solid black;
 }
 
 #tray {

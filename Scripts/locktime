@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while true
+do 
+ convert ~/.config/sway/lockold -gravity Center  -pointsize 350 -fill white -annotate 0 $(date +%I:%M) ~/.config/sway/lock
+ swaylock -f -F -e -i ~/.config/sway/lock -k -l -s fill --font IBM Plex Mono
+ done
+

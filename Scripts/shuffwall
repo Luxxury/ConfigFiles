@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while true 
+do
+	wallpaper=$(ls /home/plague/Pictures/Wallpapers | shuf -n 1)
+	wallpaper_loc="/home/plague/Pictures/Wallpapers/$wallpaper"
+	ln -f $wallpaper_loc ~/.config/sway/wall
+	kill $(pidof swaybg)
+	swaybg -i $wallpaper_loc -m fill &!
+	sleep 600
+done
+

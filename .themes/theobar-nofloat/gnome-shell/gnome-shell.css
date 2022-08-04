@@ -1,0 +1,24 @@
+/*THEOBAR NO FLOAT */
+
+#panel #panelActivities.panel-button {
+  -natural-hpadding: 12px; }
+
+#panel .panel-button#panelActivities {
+  background-image: url("assets/activities.svg");
+  background-position: center top;
+  background-size: auto; 
+  color: transparent;
+  background-color: transparent;
+  box-shadow: none;
+}
+#panel .panel-button#panelActivities > * {
+  width: 24px;
+}
+
+Gjs_ui_panel_AggregateMenu.panel-button {
+	color: #000000;
+	background-color: rgba(256,256,256,1);
+	border-radius: 0px;
+}
+
+

@@ -1,0 +1,80 @@
+device_name = "Apple Inc. Apple Internal Keyboard / Trackpad"
+phys = "usb-bce-vhci-5/input1"
+
+[[dual_role]]
+input = "KEY_CAPSLOCK"
+hold = ["KEY_LEFTMETA"]
+tap = ["KEY_ESC"]
+
+[[dual_role]]
+input = "KEY_LEFTSHIFT"
+hold = ["KEY_LEFTSHIFT"]
+tap = ["KEY_BACKSPACE"]
+
+[[dual_role]]
+input = "KEY_SPACE"
+hold = ["KEY_FN"]
+tap = ["KEY_SPACE"]
+
+[[dual_role]]
+input = "KEY_TAB"
+hold = ["KEY_LEFTCTRL"]
+tap = ["KEY_TAB"]
+
+[[remap]]
+input = ["KEY_FN","KEY_1"]
+output = ["KEY_F1"]
+
+[[remap]]
+input = ["KEY_FN","KEY_2"]
+output = ["KEY_F2"]
+
+[[remap]]
+input = ["KEY_FN","KEY_3"]
+output = ["KEY_F3"]
+
+[[remap]]
+input = ["KEY_FN","KEY_4"]
+output = ["KEY_F4"]
+
+[[remap]]
+input = ["KEY_FN","KEY_5"]
+output = ["KEY_F5"]
+
+[[remap]]
+input = ["KEY_FN","KEY_6"]
+output = ["KEY_F6"]
+
+[[remap]]
+input = ["KEY_FN","KEY_7"]
+output = ["KEY_F7"]
+
+[[remap]]
+input = ["KEY_FN","KEY_8"]
+output = ["KEY_F8"]
+
+[[remap]]
+input = ["KEY_FN","KEY_9"]
+output = ["KEY_F9"]
+
+[[remap]]
+input = ["KEY_FN","KEY_0"]
+output = ["KEY_F10"]
+
+[[remap]]
+input = ['KEY_FN','KEY_H']
+output = ['KEY_LEFT']
+
+[[remap]]
+input = ['KEY_FN','KEY_J']
+output = ['KEY_DOWN']
+
+[[remap]]
+input = ['KEY_FN','KEY_K']
+output = ['KEY_UP']
+
+[[remap]]
+input = ['KEY_FN','KEY_L']
+output = ['KEY_RIGHT']
+
+

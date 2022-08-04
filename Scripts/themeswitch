@@ -1,0 +1,37 @@
+#!/bin/bash
+
+
+floating() {
+	rm /home/plague/.config/waybar/nofloat 
+	touch /home/plague/.config/waybar/float
+	rm /home/plague/.config/waybar/config /home/plague/.config/waybar/style.css 
+	rm /home/plague/.config/sway/config 
+	rm /home/plague/.config/foot/foot.ini
+	cp /home/plague/.config/sway/floating/config /home/plague/.config/sway/
+	cp -r /home/plague/.config/waybar/floating/* /home/plague/.config/waybar/ 
+	cp /home/plague/.config/foot/transparent/foot.ini /home/plague/.config/foot/
+	swaymsg reload
+}
+
+nofloating() {
+	rm /home/plague/.config/waybar/float
+	touch /home/plague/.config/waybar/nofloat 
+	rm /home/plague/.config/waybar/config /home/plague/.config/waybar/style.css 
+	rm /home/plague/.config/sway/config 
+	rm /home/plague/.config/foot/foot.ini
+	cp /home/plague/.config/sway/nofloating/config /home/plague/.config/sway/
+	cp -r /home/plague/.config/waybar/nofloating/* /home/plague/.config/waybar/
+	cp /home/plague/.config/foot/notransparent/foot.ini /home/plague/.config/foot/
+	swaymsg reload
+}
+
+if [[ -f "/home/plague/.config/waybar/float" ]]
+then
+	nofloating
+elif [[ -f "/home/plague/.config/waybar/nofloat" ]]
+then
+	floating
+fi
+
+
+

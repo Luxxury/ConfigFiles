@@ -1,0 +1,37 @@
+device_name = "HT CB-GK-16 Firefly"
+
+[[dual_role]]
+input = "KEY_CAPSLOCK"
+hold = ["KEY_LEFTMETA"]
+tap = ["KEY_ESC"]
+
+[[dual_role]]
+input = "KEY_LEFTSHIFT"
+hold = ["KEY_LEFTSHIFT"]
+tap = ["KEY_BACKSPACE"]
+
+[[dual_role]]
+input = "KEY_SPACE"
+hold = ["KEY_FN"]
+tap = ["KEY_SPACE"]
+
+[[dual_role]]
+input = "KEY_TAB"
+hold = ["KEY_LEFTCTRL"]
+tap = ["KEY_TAB"]
+
+[[remap]]
+input = ['KEY_FN','KEY_H']
+output = ['KEY_LEFT']
+
+[[remap]]
+input = ['KEY_FN','KEY_J']
+output = ['KEY_DOWN']
+
+[[remap]]
+input = ['KEY_FN','KEY_K']
+output = ['KEY_UP']
+
+[[remap]]
+input = ['KEY_FN','KEY_L']
+output = ['KEY_RIGHT']

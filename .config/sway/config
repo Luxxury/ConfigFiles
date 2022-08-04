@@ -5,31 +5,34 @@
 
 set $mod Mod4
 set $left h
-set $down j
-set $up k
-set $right l
-set $menu wofi --show drun -i -H 500 -W 450 -I -O alphabetical
+set $down n
+set $up e
+set $right i
+set $menu wofi --show drun -i -H 500 -W 450 
 set $term foot
 
 floating_modifier $mod normal
 default_border pixel 2
 client.focused #ffffff #ffffff #000000 #fc2d2d
 client.unfocused #000000 #000000 #ffffff
-gaps inner 10
+client.focused_inactive #000000 #000000 #ffffff
+gaps inner 0
 gaps outer 0
 
 # No gaps if there's only 1 window
 #smart_gaps on
 
 # Hides the borders if theres only 1 window
-#hide_edge_borders smart
+hide_edge_borders smart
 
 # Output configuration
+#exec /home/plague/Documents/Scripts/setbg -s
 
 output * bg ~/.config/sway/wall fill
 output eDP-1 resolution 2560x1600 scale 1.333
 
 # Input configuration
+
 # Interal Trackpad
 input "1452:635:bcm5974" {
 	dwt enabled
@@ -37,30 +40,37 @@ input "1452:635:bcm5974" {
 	natural_scroll enabled
 	middle_emulation enabled
 }
+input type:keyboard {
+	xkb_options shift:both_capslock
+	xkb_layout us(colemak)
+	repeat_rate 50
+}
 
 # Key bindings
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term -a float
 bindsym $mod+q kill
+bindsym $mod+F4 wkill
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+c reload
 bindsym $mod+w exec qutebrowser
 bindsym $mod+shift+w exec firefox
-bindsym $mod+c exec flatpak run io.github.kotatogram
+bindsym $mod+c exec flatpak run org.telegram.desktop
 bindsym $mod+r exec $term -a float ranger
 bindsym $mod+Shift+r exec nautilus
 bindsym $mod+shift+m exec /home/plague/Documents/Scripts/sourceswitch
 bindsym mod1+shift+w exec /home/plague/Documents/Scripts/setbg -s
 bindsym $mod+shift+minus exec brightnessctl s 1%-
 bindsym $mod+shift+equal exec brightnessctl s +1%
-bindsym $mod+minus exec ./.local/bin/pulsemixer --change-volume -1 
-bindsym $mod+equal exec ./.local/bin/pulsemixer --change-volume +1 
-bindsym $mod+m exec ./.local/bin/pulsemixer --toggle-mute 
+bindsym $mod+minus exec ~/.local/bin/pulsemixer --change-volume -1 
+bindsym $mod+equal exec ~/.local/bin/pulsemixer --change-volume +1 
+bindsym $mod+m exec ~/.local/bin/pulsemixer --toggle-mute 
 bindsym $mod+p exec ~/Documents/Scripts/screenshot -f
 bindsym $mod+shift+p exec ~/Documents/Scripts/screenshot -s
 bindsym $mod+Shift+Escape exec "swaylock -f -F -e -i ~/.config/sway/lock -k -l -s fill --font IBM Plex Mono"
 bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+comma exec ~/Documents/Scripts/switchlayout
 
 # Moving around:
 
@@ -85,10 +95,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 #resize
-bindsym $mod+mod1+h exec swaymsg resize shrink right 10px || swaymsg resize grow left 10px
-bindsym $mod+mod1+j exec swaymsg resize grow down 10px || swaymsg resize shrink up 10px
-bindsym $mod+mod1+k exec swaymsg resize shrink down 10px || swaymsg resize grow up 10px
-bindsym $mod+mod1+l exec swaymsg resize grow right 10px || swaymsg resize shrink left 10px
+bindsym $mod+mod1+$left exec swaymsg resize shrink right 10px || swaymsg resize grow left 10px
+bindsym $mod+mod1+$down exec swaymsg resize grow down 10px || swaymsg resize shrink up 10px
+bindsym $mod+mod1+$up exec swaymsg resize shrink down 10px || swaymsg resize grow up 10px
+bindsym $mod+mod1+$right exec swaymsg resize grow right 10px || swaymsg resize shrink left 10px
 
 # Workspaces:
 
@@ -121,8 +131,8 @@ bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
 bindsym $mod+t layout toggle split
-bindsym $mod+y layout tabbed
-bindsym $mod+u layout stacking
+bindsym $mod+Shift+t layout tabbed
+bindsym $mod+Shift+s layout stacking
 
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
@@ -162,7 +172,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+Shift+t mode "resize"
 
 
 # Media Keys
@@ -184,13 +193,11 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Rules
 for_window [app_id="float"] floating enable;
-for_window [app_id="mpv"] floating enable; resize set 700 300
 for_window [app_id="org.gnome.Calculator"] floating enable;
 for_window [app_id="org.kde.kdenlive"] floating enable;
 for_window [app_id="gcolor3"] floating enable;
 
-exec_always {
-	}
+exec easyeffects  --gapplication-service 
 
 bar {
 	swaybar_command waybar

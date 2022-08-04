@@ -1,11 +1,12 @@
 {
  	"layer": "top", 		// Waybar at top layer
 	"position": "top", 		// Waybar position (top|bottom|left|right)
-	"height": 35, 			// Waybar height (to be removed for auto height)
-	"spacing": 5, 			// Gaps between modules (4px)
-    	"margin-top": 10,
+	"height": 30, 			// Waybar height (to be removed for auto height)
+	"spacing": 0, 			// Gaps between modules (4px)
+    	"margin-top": 0,
     	"margin-bottom":0, 
-	"modules-center": ["sway/workspaces", "sway/mode","clock", "custom/memory", "network", "custom/netspeed", "backlight", "temperature", "battery", "pulseaudio", "tray"],
+	"modules-left": ["sway/workspaces","clock"],
+	"modules-right": ["custom/memory", "network", "custom/netspeed", "backlight", "temperature", "battery","custom/layout", "pulseaudio", "tray"],
     
 // Modules configuration
     
@@ -75,9 +76,9 @@
 	"pulseaudio": {
 		"scroll-step": 1,
         	"format": "VOL {volume}% MIC {format_source}", 
-        	"format-muted": "VOL MUTE MIC {format_source}",
+        	"format-muted": "VOL X MIC {format_source}",
 		"format-source": "{volume}%",
-		"format-source-muted": "MUTE",
+		"format-source-muted": "X",
         	"on-click": "foot -- /home/plague/.local/bin/pulsemixer"
         	},
     	
@@ -94,6 +95,13 @@
 		"exec": "/home/plague/Documents/Scripts/netspeed",
 		"format": "{}",
 		"interval": 1,
+	},
+
+	"custom/layout": {
+		"exec": "/home/plague/Documents/Scripts/switchlayout -p",
+		"format": "{}",
+		"interval": 1,
+
 	},
 
 }

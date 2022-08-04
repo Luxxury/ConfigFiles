@@ -1,0 +1,4 @@
+#!/bin/bash
+
+convert $1 -colorspace Gray $1-gray.jpg
+

@@ -1,0 +1,43 @@
+[Print Settings]
+cups-Resolution=601x600dpi
+cups-StpImageType=TextGraphics
+evince-print-setting-page-autorotate=true
+cups-StpInkType=CMYK
+media-type=Plain
+resolution-x=601
+cups-StpColorCorrection=None
+print-at=now
+cups-StpQuality=Standard
+print-at-time=
+resolution-y=600
+cups-job-priority=50
+cups-StpBrightness=None
+evince-print-setting-page-size=false
+default-source=rear
+cover-before=none
+cover-after=none
+cups-MediaType=Plain
+resolution=601
+cups-InputSlot=Rear
+cups-StpCDInnerRadius=None
+cups-StpContrast=None
+cups-StpiShrinkOutput=Shrink
+cups-StpOrientation=Portrait
+cups-ColorModel=Gray
+printer=G2000-series
+evince-print-setting-page-scale=1
+cups-StpSaturation=None
+cups-StpFullBleed=False
+cups-job-sheets=none,none
+cups-number-up=1
+
+[Page Setup]
+PPDName=Letter
+DisplayName=US Letter
+Width=215.89999389648438
+Height=279.39999389648438
+MarginTop=6.3499999999999996
+MarginBottom=14.224
+MarginLeft=6.3499999999999996
+MarginRight=6.3499999999999996
+Orientation=portrait
